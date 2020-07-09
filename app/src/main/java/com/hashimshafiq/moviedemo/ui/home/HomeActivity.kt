@@ -6,10 +6,8 @@ import android.view.View
 import android.widget.ImageView
 import androidx.core.app.ActivityOptionsCompat
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.hashimshafiq.moviedemo.utils.common.GridSpacingItemDecoration
 import com.hashimshafiq.moviedemo.R
 import com.hashimshafiq.moviedemo.data.model.Movie
 import com.hashimshafiq.moviedemo.di.components.ActivityComponent
