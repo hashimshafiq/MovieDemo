@@ -32,9 +32,4 @@ class MovieItemViewModel @Inject constructor(networkHelper: NetworkHelper) : Bas
 
     val releaseDate : LiveData<String> = Transformations.map(data){TimeUtils.parseDateToFormat(it.releaseDate)}
 
-
-
-
-
-
 }

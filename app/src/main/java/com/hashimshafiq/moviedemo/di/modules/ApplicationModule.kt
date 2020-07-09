@@ -42,7 +42,7 @@ class ApplicationModule(private val application : MovieApplication) {
     fun provideDatabaseService(): DatabaseService =
             Room.databaseBuilder(
                     application, DatabaseService::class.java,
-                    "movie-popcorn-db"
+                    "movie-demo-db"
             ).build()
 
     @Singleton

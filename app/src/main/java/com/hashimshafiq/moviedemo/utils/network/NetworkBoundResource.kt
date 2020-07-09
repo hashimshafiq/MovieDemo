@@ -9,7 +9,7 @@ abstract class NetworkBoundResource() {
     suspend fun execute() : MovieListResponse? {
         return if (shouldFetch()){
             val data = loadFromNetwork()
-            saveCallResult(data)
+            saveResult(data)
             data
         }else{
             val data = loadFromDb()
@@ -19,7 +19,7 @@ abstract class NetworkBoundResource() {
         }
     }
 
-    protected abstract fun saveCallResult(request: MovieListResponse?)
+    protected abstract suspend fun saveResult(request: MovieListResponse?)
 
     protected abstract suspend fun loadFromDb(): List<Movie>?
 

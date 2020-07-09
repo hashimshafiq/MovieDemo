@@ -8,7 +8,7 @@
     android:layout_height="170dp"
     app:cardElevation="10dp"
     android:layout_margin="10dp"
-    app:strokeColor="@color/black"
+    app:strokeColor="@color/colorPrimaryDark"
     app:strokeWidth="1dp"
 
     >

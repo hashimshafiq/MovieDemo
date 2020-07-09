@@ -18,7 +18,7 @@ class HomeRepository @Inject constructor(
 
         return object : NetworkBoundResource(){
 
-            override fun saveCallResult(request: MovieListResponse?) {
+            override suspend fun saveResult(request: MovieListResponse?) {
                 databaseService.moviesDao().insertMoves(request?.movies!!)
             }
 

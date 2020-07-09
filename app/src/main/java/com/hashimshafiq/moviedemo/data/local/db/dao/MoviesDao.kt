@@ -9,8 +9,8 @@ import com.hashimshafiq.moviedemo.data.local.db.entity.Movie
 @Dao
 interface MoviesDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertMoves(movies: List<Movie>)
+    suspend fun insertMoves(movies: List<Movie>)
 
-    @Query("SELECT * FROM movies ORDER BY vote_average")
+    @Query("SELECT * FROM movies ORDER BY vote_average DESC")
     suspend fun getMovies(): List<Movie>
 }
