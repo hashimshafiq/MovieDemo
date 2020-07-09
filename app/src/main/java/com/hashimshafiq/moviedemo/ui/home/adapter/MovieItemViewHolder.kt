@@ -2,6 +2,7 @@ package com.hashimshafiq.moviedemo.ui.home.adapter
 
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.hashimshafiq.moviedemo.R

@@ -8,4 +8,6 @@
     <string name="server_connection_error">Not able to connect, please retry again</string>
     <string name="popular_movies">Popular Movies</string>
     <string name="image_content_description">Movie Poster Image View</string>
+    <string name="averageVote">Average Vote: %s</string>
+    <string name="releaseDate">Release: %s</string>
 </resources>

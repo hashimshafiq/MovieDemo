@@ -53,7 +53,7 @@ class HomeActivity : BaseActivity<HomeViewModel>(), OnItemClickListener {
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                     super.onScrolled(recyclerView, dx, dy)
                     layoutManager?.run {
-                        if(this is GridLayoutManager
+                        if(this is LinearLayoutManager
                                 && itemCount>1
                                 && itemCount >= findLastVisibleItemPosition()+1){
 

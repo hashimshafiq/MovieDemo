@@ -9,7 +9,7 @@ object TimeUtils {
     fun parseDateToFormat(date: String) : String?{
 
         val format = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-        val outputFormat = SimpleDateFormat("dd MMM - yyyy", Locale.getDefault())
+        val outputFormat = SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
         return try {
             val outputDate = format.parse(date)
             outputDate?.run {

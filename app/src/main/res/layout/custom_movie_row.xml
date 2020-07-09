@@ -43,7 +43,7 @@
             android:id="@+id/movieName"
             tools:text="Movie Name"
             style="@style/AppTheme.Heading"
-            android:maxLines="1"
+            android:maxLines="2"
             android:ellipsize="end"
             />
 
@@ -57,7 +57,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="5dp"
             android:id="@+id/movieRating"
-            tools:text="Average Rating"
+            tools:text="@string/averageVote"
             style="@style/AppTheme.Heading"
             android:maxLines="1"
             android:ellipsize="end"
@@ -73,7 +73,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="5dp"
             android:id="@+id/movieReleaseDate"
-            tools:text="Release Date"
+            tools:text="@string/releaseDate"
             style="@style/AppTheme.Heading"
             android:maxLines="1"
             android:ellipsize="end"
@@ -81,9 +81,10 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             app:layout_constraintStart_toEndOf="@id/movieImage"
             app:layout_constraintTop_toBottomOf="@id/movieReleaseDate"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="5dp"
             android:layout_marginStart="10dp"
@@ -91,7 +92,7 @@
             android:id="@+id/movieOverview"
             tools:text="Release Date"
             style="@style/AppTheme.Body"
-            android:maxLines="3"
+            android:maxLines="4"
             android:ellipsize="end"
             />
 
