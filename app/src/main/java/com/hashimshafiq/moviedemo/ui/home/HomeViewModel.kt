@@ -8,6 +8,7 @@ import com.hashimshafiq.moviedemo.data.repository.HomeRepository
 import com.hashimshafiq.moviedemo.ui.base.BaseViewModel
 import com.hashimshafiq.moviedemo.utils.common.Resource
 import com.hashimshafiq.moviedemo.utils.network.NetworkHelper
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
@@ -21,17 +22,18 @@ class HomeViewModel(networkHelper: NetworkHelper, private val homeRepository: Ho
     }
 
     private fun doFetchMovies(pageNumber : Int = 1){
-        if (!networkHelper.isNetworkConnected()){
-            moviesList.postValue(Resource.error())
-            return
-        }
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             moviesList.postValue(Resource.loading())
             try {
                 val res = homeRepository.fetchMovies(pageNumber)
-                movieListResponse = res
-                moviesList.postValue(Resource.success(res))
-
+                res?.let {
+                    if (it.movies!!.isNotEmpty()){
+                        movieListResponse = res
+                        moviesList.postValue(Resource.success(res))
+                    }else{
+                        moviesList.postValue(Resource.error())
+                    }
+                }
             }catch (e : Exception){
                 moviesList.postValue(Resource.unknown())
             }
@@ -44,12 +46,9 @@ class HomeViewModel(networkHelper: NetworkHelper, private val homeRepository: Ho
 
     fun loadMore() {
         movieListResponse?.let {
-            if (it.page <= it.totalPages){
+            if (it.page < it.totalPages){
                 doFetchMovies(pageNumber = it.page+1)
             }
-        } ?: run {
-            doFetchMovies()
         }
-
     }
 }

@@ -1,5 +1,6 @@
 package com.hashimshafiq.moviedemo.data.remote
 
+import androidx.lifecycle.LiveData
 import com.hashimshafiq.moviedemo.data.remote.responses.MovieListResponse
 import retrofit2.http.GET
 import retrofit2.http.Query

@@ -4,11 +4,11 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.hashimshafiq.moviedemo.data.local.db.dao.MoviesDao
-import com.hashimshafiq.moviedemo.data.local.db.entity.MovieEntity
+import com.hashimshafiq.moviedemo.data.model.Movie
 import javax.inject.Singleton
 
 @Singleton
-@Database(entities = [MovieEntity::class],
+@Database(entities = [Movie::class],
         version = 1,
         exportSchema = false)
 @TypeConverters(Converters::class)

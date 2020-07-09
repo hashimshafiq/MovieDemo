@@ -1,15 +1,19 @@
 package com.hashimshafiq.moviedemo.data.model
 
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 import java.util.*
 
 @Parcelize
+@Entity(tableName = "movies")
 data class Movie(
         @Expose
         @SerializedName("id")
+        @PrimaryKey
         val id: String,
 
         @Expose
@@ -19,14 +23,6 @@ data class Movie(
         @Expose
         @SerializedName("poster_path")
         val poster_path: String?,
-
-        @Expose
-        @SerializedName("original_language")
-        val originalLanguage: String,
-
-        @Expose
-        @SerializedName("original_title")
-        val originalTitle: String,
 
         @Expose
         @SerializedName("title")
