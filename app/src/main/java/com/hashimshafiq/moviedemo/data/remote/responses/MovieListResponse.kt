@@ -2,8 +2,7 @@ package com.hashimshafiq.moviedemo.data.remote.responses
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import com.hashimshafiq.moviedemo.data.local.db.entity.MovieEntity
-import com.hashimshafiq.moviedemo.data.model.Movie
+import com.hashimshafiq.moviedemo.data.local.db.entity.Movie
 
 data class MovieListResponse (
         @SerializedName("page")

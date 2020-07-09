@@ -1,11 +1,9 @@
 package com.hashimshafiq.moviedemo.data.repository
 
-import androidx.lifecycle.MutableLiveData
 import com.hashimshafiq.moviedemo.data.local.db.DatabaseService
-import com.hashimshafiq.moviedemo.data.model.Movie
+import com.hashimshafiq.moviedemo.data.local.db.entity.Movie
 import com.hashimshafiq.moviedemo.data.remote.NetworkService
 import com.hashimshafiq.moviedemo.data.remote.responses.MovieListResponse
-import com.hashimshafiq.moviedemo.utils.common.Resource
 import com.hashimshafiq.moviedemo.utils.network.NetworkBoundResource
 import com.hashimshafiq.moviedemo.utils.network.NetworkHelper
 import javax.inject.Inject

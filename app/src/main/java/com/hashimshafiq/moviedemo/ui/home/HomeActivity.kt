@@ -9,7 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.hashimshafiq.moviedemo.R
-import com.hashimshafiq.moviedemo.data.model.Movie
+import com.hashimshafiq.moviedemo.data.local.db.entity.Movie
 import com.hashimshafiq.moviedemo.di.components.ActivityComponent
 import com.hashimshafiq.moviedemo.ui.base.BaseActivity
 import com.hashimshafiq.moviedemo.ui.detail.MovieDetailActivity

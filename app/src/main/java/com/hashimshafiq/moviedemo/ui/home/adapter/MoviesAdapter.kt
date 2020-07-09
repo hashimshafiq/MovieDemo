@@ -2,7 +2,7 @@ package com.hashimshafiq.moviedemo.ui.home.adapter
 
 import android.view.ViewGroup
 import androidx.lifecycle.Lifecycle
-import com.hashimshafiq.moviedemo.data.model.Movie
+import com.hashimshafiq.moviedemo.data.local.db.entity.Movie
 import com.hashimshafiq.moviedemo.ui.base.BaseAdapter
 
 class MoviesAdapter(parentLifecycle: Lifecycle,movies : ArrayList<Movie>)

@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.hashimshafiq.moviedemo.R
-import com.hashimshafiq.moviedemo.data.model.Movie
+import com.hashimshafiq.moviedemo.data.local.db.entity.Movie
 import com.hashimshafiq.moviedemo.di.components.ViewHolderComponent
 import com.hashimshafiq.moviedemo.ui.base.BaseItemViewHolder
 import kotlinx.android.synthetic.main.custom_movie_row.view.*
@@ -55,6 +55,8 @@ class MovieItemViewHolder(parent : ViewGroup, private val onItemClickListener: O
                 val glideRequest = Glide
                         .with(itemView.movieImage.context)
                         .load(this)
+
+
 
                 glideRequest.into(itemView.movieImage)
             }

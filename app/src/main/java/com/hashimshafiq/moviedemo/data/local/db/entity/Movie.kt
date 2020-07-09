@@ -1,4 +1,4 @@
-package com.hashimshafiq.moviedemo.data.model
+package com.hashimshafiq.moviedemo.data.local.db.entity
 
 import android.os.Parcelable
 import androidx.room.Entity

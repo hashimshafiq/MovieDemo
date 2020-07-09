@@ -2,7 +2,7 @@ package com.hashimshafiq.moviedemo.ui.home.adapter
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
-import com.hashimshafiq.moviedemo.data.model.Movie
+import com.hashimshafiq.moviedemo.data.local.db.entity.Movie
 import com.hashimshafiq.moviedemo.ui.base.BaseItemViewModel
 import com.hashimshafiq.moviedemo.utils.common.Constants
 import com.hashimshafiq.moviedemo.utils.common.TimeUtils

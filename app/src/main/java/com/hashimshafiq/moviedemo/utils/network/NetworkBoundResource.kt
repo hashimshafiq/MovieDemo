@@ -1,6 +1,6 @@
 package com.hashimshafiq.moviedemo.utils.network
 
-import com.hashimshafiq.moviedemo.data.model.Movie
+import com.hashimshafiq.moviedemo.data.local.db.entity.Movie
 import com.hashimshafiq.moviedemo.data.remote.responses.MovieListResponse
 
 

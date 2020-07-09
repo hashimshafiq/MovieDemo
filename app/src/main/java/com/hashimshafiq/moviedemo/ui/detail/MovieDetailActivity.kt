@@ -3,7 +3,7 @@ package com.hashimshafiq.moviedemo.ui.detail
 import android.os.Bundle
 import com.bumptech.glide.Glide
 import com.hashimshafiq.moviedemo.R
-import com.hashimshafiq.moviedemo.data.model.Movie
+import com.hashimshafiq.moviedemo.data.local.db.entity.Movie
 import com.hashimshafiq.moviedemo.di.components.ActivityComponent
 import com.hashimshafiq.moviedemo.ui.base.BaseActivity
 import com.hashimshafiq.moviedemo.utils.common.Constants

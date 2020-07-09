@@ -28,6 +28,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:contentDescription="@string/image_content_description"
+            android:src="@drawable/loading"
             />
 
 
