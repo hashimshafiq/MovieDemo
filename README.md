@@ -1,6 +1,6 @@
 # MovieDemo
 
-![Sample Image Of Project](https://github.com/hashimshafiq/MovieDemo/blob/master/sample.jpeg =100x100)
+![Sample Image Of Project](https://github.com/hashimshafiq/MovieDemo/blob/master/sample.jpeg)
 
 #### This project is built as a task from YallaParking for the role of Junior Android Developer.
 
