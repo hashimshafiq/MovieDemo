@@ -29,13 +29,7 @@ class HomeActivity : BaseActivity<HomeViewModel>(), OnItemClickListener {
     }
 
     @Inject
-    lateinit var gridLayoutManager : GridLayoutManager
-
-    @Inject
     lateinit var linearLayoutManager: LinearLayoutManager
-
-    @Inject
-    lateinit var gridSpacingItemDecoration: GridSpacingItemDecoration
 
     @Inject
     lateinit var moviesAdapter: MoviesAdapter
@@ -76,14 +70,12 @@ class HomeActivity : BaseActivity<HomeViewModel>(), OnItemClickListener {
                 Status.SUCCESS -> {
                     progressBar.visibility = View.GONE
                     it.data?.let { movieList -> renderList(movieList.movies!!) }
-
                 }
                 Status.LOADING -> {
                     progressBar.visibility = View.VISIBLE
                 }
                 Status.ERROR -> {
-                    //Handle Error
-                    Toaster.show(this, getString(R.string.network_server_not_available))
+                    Toaster.show(this, getString(R.string.network_connection_error))
                 }
                 Status.UNKNOWN -> {
                     Toaster.show(this, getString(R.string.network_default_error))

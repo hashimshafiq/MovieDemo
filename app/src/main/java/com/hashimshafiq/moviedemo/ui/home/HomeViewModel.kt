@@ -24,7 +24,7 @@ class HomeViewModel(networkHelper: NetworkHelper, private val homeRepository: Ho
 
     private fun doFetchMovies(){
         if (!networkHelper.isNetworkConnected()){
-            messageStringId.postValue(Resource.error(R.string.network_connection_error))
+            moviesList.postValue(Resource.error())
             return
         }
         viewModelScope.launch {
@@ -34,7 +34,7 @@ class HomeViewModel(networkHelper: NetworkHelper, private val homeRepository: Ho
                 moviesList.postValue(Resource.success(res))
 
             }catch (e : Exception){
-                messageStringId.postValue(Resource.error(R.string.network_default_error))
+                moviesList.postValue(Resource.unknown())
             }
         }
     }
