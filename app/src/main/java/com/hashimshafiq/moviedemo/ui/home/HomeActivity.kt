@@ -2,6 +2,7 @@ package com.hashimshafiq.moviedemo.ui.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import androidx.core.app.ActivityOptionsCompat
 import androidx.lifecycle.Observer
@@ -55,7 +56,7 @@ class HomeActivity : BaseActivity<HomeViewModel>(), OnItemClickListener {
                     layoutManager?.run {
                         if(this is LinearLayoutManager
                                 && itemCount>1
-                                && itemCount >= findLastVisibleItemPosition()+1){
+                                && itemCount == findLastVisibleItemPosition()+1){
 
                             viewModel.loadMore()
                         }
@@ -63,7 +64,7 @@ class HomeActivity : BaseActivity<HomeViewModel>(), OnItemClickListener {
                 }
             })
 
-        }//.addItemDecoration(gridSpacingItemDecoration)
+        }
 
     }
 
@@ -73,19 +74,21 @@ class HomeActivity : BaseActivity<HomeViewModel>(), OnItemClickListener {
         viewModel.getMoviesList().observe(this, Observer {
             when(it.status){
                 Status.SUCCESS -> {
+                    progressBar.visibility = View.GONE
                     it.data?.let { movieList -> renderList(movieList.movies!!) }
 
                 }
                 Status.LOADING -> {
-
+                    progressBar.visibility = View.VISIBLE
                 }
                 Status.ERROR -> {
                     //Handle Error
                     Toaster.show(this, getString(R.string.network_server_not_available))
                 }
-                else -> {
-
+                Status.UNKNOWN -> {
+                    Toaster.show(this, getString(R.string.network_default_error))
                 }
+
             }
         })
     }

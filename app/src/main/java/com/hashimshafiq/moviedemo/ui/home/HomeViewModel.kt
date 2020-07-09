@@ -2,6 +2,7 @@ package com.hashimshafiq.moviedemo.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.hashimshafiq.moviedemo.R
 import com.hashimshafiq.moviedemo.data.remote.responses.MovieListResponse
 import com.hashimshafiq.moviedemo.data.repository.HomeRepository
@@ -26,7 +27,7 @@ class HomeViewModel(networkHelper: NetworkHelper, private val homeRepository: Ho
             messageStringId.postValue(Resource.error(R.string.network_connection_error))
             return
         }
-        GlobalScope.launch {
+        viewModelScope.launch {
             moviesList.postValue(Resource.loading())
             try {
                 val res = homeRepository.fetchMovies(pageNumber)

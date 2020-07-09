@@ -52,11 +52,19 @@
         android:layout_height="match_parent"
         android:id="@+id/listView"
         tools:listitem="@layout/custom_movie_row"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="4"
-        tools:itemCount="12"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="3"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
 
+        />
+
+    <ProgressBar
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:indeterminate="true"
+        android:id="@+id/progressBar"
+        android:layout_gravity="bottom"
         />
 
 

@@ -90,7 +90,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="5dp"
             android:id="@+id/movieOverview"
-            tools:text="Release Date"
+            tools:text="@tools:sample/lorem/random"
             style="@style/AppTheme.Body"
             android:maxLines="4"
             android:ellipsize="end"
