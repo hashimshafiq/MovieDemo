@@ -7,9 +7,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AppTheme.Heading" parent="TextAppearance.MaterialComponents.Headline3">
-        <item name="fontFamily">sans-serif-medium</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
+    <style name="AppTheme.SubHeading" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="fontFamily">sans-serif-light</item>
+        <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textSize">15sp</item>
     </style>
 
@@ -20,5 +20,10 @@
         <item name="android:textSize">12sp</item>
     </style>
 
+    <style name="AppTheme.Heading" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">15sp</item>
+    </style>
 
 </resources>

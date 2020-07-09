@@ -58,7 +58,7 @@
             android:layout_marginEnd="5dp"
             android:id="@+id/movieRating"
             tools:text="@string/averageVote"
-            style="@style/AppTheme.Heading"
+            style="@style/AppTheme.SubHeading"
             android:maxLines="1"
             android:ellipsize="end"
             />
@@ -74,7 +74,7 @@
             android:layout_marginEnd="5dp"
             android:id="@+id/movieReleaseDate"
             tools:text="@string/releaseDate"
-            style="@style/AppTheme.Heading"
+            style="@style/AppTheme.SubHeading"
             android:maxLines="1"
             android:ellipsize="end"
             />

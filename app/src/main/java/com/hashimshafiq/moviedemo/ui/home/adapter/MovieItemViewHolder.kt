@@ -2,7 +2,6 @@ package com.hashimshafiq.moviedemo.ui.home.adapter
 
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.hashimshafiq.moviedemo.R
@@ -29,7 +28,7 @@ class MovieItemViewHolder(parent : ViewGroup, private val onItemClickListener: O
 
         viewModel.movieAverageVote.observe(this, Observer {averageVote ->
             averageVote?.run {
-                itemView.movieRating.text = averageVote.toString()
+                itemView.movieRating.text = itemView.context.getString(R.string.averageVote,averageVote.toString())
             }
 
         })
@@ -44,7 +43,7 @@ class MovieItemViewHolder(parent : ViewGroup, private val onItemClickListener: O
         viewModel.releaseDate.observe(this, Observer {releaseDate ->
 
             releaseDate?.run {
-                itemView.movieReleaseDate.text = releaseDate
+                itemView.movieReleaseDate.text = itemView.context.getString(R.string.releaseDate,releaseDate)
             }
 
         })
