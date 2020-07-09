@@ -1,6 +1,8 @@
 # MovieDemo
 
-### This project is built as a task from YallaParking for the role of Junior Android Developer.
+#### This project is built as a task from YallaParking for the role of Junior Android Developer.
+
+### Dowload APK from [here](https://github.com/hashimshafiq/MovieDemo/blob/master/app-debug.apk)
 
 ## About the App
 This app fetches the list of movies from the https://www.themoviedb.org/ and display in the android app. It provides offline capability as well.
@@ -15,6 +17,3 @@ This app fetches the list of movies from the https://www.themoviedb.org/ and dis
 * Retrofit
 * LiveData
 * Glide
-
-
-
