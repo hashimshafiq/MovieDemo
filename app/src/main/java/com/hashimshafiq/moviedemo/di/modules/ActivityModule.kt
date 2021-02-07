@@ -18,9 +18,6 @@ class ActivityModule(private val activity : BaseActivity<*>) {
     @Provides
     fun provideLinearLayoutManager(): LinearLayoutManager = LinearLayoutManager(activity)
 
-    @Provides
-    fun providesMoviesAdapter(): MoviesAdapter = MoviesAdapter(activity.lifecycle, arrayListOf())
-
 
     @Provides
     fun provideMovieDetailViewModel(

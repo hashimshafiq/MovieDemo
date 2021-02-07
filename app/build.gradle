@@ -20,6 +20,7 @@ android {
 
     buildTypes {
         debug {
+            minifyEnabled true
             buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
             buildConfigField("String", "API_KEY", "\"a13990b92a6bbfa4d6bc2f3eb12c1b24\"")
         }
