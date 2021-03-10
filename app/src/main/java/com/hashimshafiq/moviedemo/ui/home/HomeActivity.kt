@@ -39,8 +39,6 @@ class HomeActivity : BaseActivity<HomeViewModel>() {
 
     override fun setupView(savedInstanceState: Bundle?) {
 
-
-
         moviesAdapter = MoviesAdapter(this.lifecycle, arrayListOf()){ movie, imageView ->
 
             val intent = Intent(this, MovieDetailActivity::class.java)
