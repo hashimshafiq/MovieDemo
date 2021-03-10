@@ -72,7 +72,7 @@ class HomeActivity : BaseActivity<HomeViewModel>() {
     override fun setupObservers() {
         super.setupObservers()
 
-        viewModel.getMoviesList().observe(this, Observer {
+        viewModel.getMoviesList().observe(this, {
             when(it.status){
                 Status.SUCCESS -> {
                     progressBar.visibility = View.GONE
@@ -82,10 +82,10 @@ class HomeActivity : BaseActivity<HomeViewModel>() {
                     progressBar.visibility = View.VISIBLE
                 }
                 Status.ERROR -> {
-                    Toaster.show(this, getString(R.string.network_connection_error))
+                    showMessage(it.data.toString())
                 }
                 Status.UNKNOWN -> {
-                    Toaster.show(this, getString(R.string.network_default_error))
+                    showMessage(R.string.network_default_error)
                 }
 
             }
