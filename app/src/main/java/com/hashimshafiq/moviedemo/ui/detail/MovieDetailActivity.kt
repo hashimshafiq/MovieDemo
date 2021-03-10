@@ -1,20 +1,26 @@
 package com.hashimshafiq.moviedemo.ui.detail
 
 import android.os.Bundle
+import android.view.View
 import com.bumptech.glide.Glide
-import com.hashimshafiq.moviedemo.R
 import com.hashimshafiq.moviedemo.data.local.db.entity.Movie
+import com.hashimshafiq.moviedemo.databinding.ActivityPostDetailBinding
 import com.hashimshafiq.moviedemo.di.components.ActivityComponent
 import com.hashimshafiq.moviedemo.ui.base.BaseActivity
 import com.hashimshafiq.moviedemo.utils.common.Constants
-import kotlinx.android.synthetic.main.activity_post_detail.*
 
 class MovieDetailActivity : BaseActivity<MovieDetailViewModel>() {
 
     companion object {
         const val MOVIE_DATA = "movie"
     }
-    override fun provideLayoutId(): Int = R.layout.activity_post_detail
+
+    lateinit var binding : ActivityPostDetailBinding
+
+    override fun provideLayoutId(): View {
+        binding = ActivityPostDetailBinding.inflate(layoutInflater)
+        return binding.root
+    }
 
     override fun injectDependencies(activityComponent: ActivityComponent){
         activityComponent.inject(this)
@@ -27,7 +33,7 @@ class MovieDetailActivity : BaseActivity<MovieDetailViewModel>() {
         Glide
                 .with(applicationContext)
                 .load(Constants.IMAGE_BASE_UR+movie.poster_path)
-                .into(ivMovie)
+                .into(binding.ivMovie)
 
 
     }

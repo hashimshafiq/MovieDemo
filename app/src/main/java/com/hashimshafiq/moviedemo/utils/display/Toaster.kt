@@ -14,12 +14,12 @@ import com.hashimshafiq.moviedemo.R
 object Toaster {
     fun show(context: Context, text: CharSequence) {
         val toast = android.widget.Toast.makeText(context, text, android.widget.Toast.LENGTH_SHORT)
-        toast.view.background.colorFilter =
+        toast.view?.background?.colorFilter =
                 BlendModeColorFilterCompat.createBlendModeColorFilterCompat(android.R.color.white, BlendModeCompat.SRC_IN)
 
 
 
-        val textView = toast.view.findViewById(android.R.id.message) as TextView
+        val textView = toast.view?.findViewById(android.R.id.message) as TextView
         textView.setTextColor(ContextCompat.getColor(context, android.R.color.black))
         toast.show()
     }

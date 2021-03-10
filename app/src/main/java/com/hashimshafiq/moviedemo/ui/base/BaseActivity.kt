@@ -1,10 +1,10 @@
 package com.hashimshafiq.moviedemo.ui.base
 
 import android.os.Bundle
+import android.view.View
 import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import com.hashimshafiq.moviedemo.MovieApplication
 import com.hashimshafiq.moviedemo.di.components.ActivityComponent
 import com.hashimshafiq.moviedemo.di.components.DaggerActivityComponent
@@ -17,6 +17,7 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
     @Inject
     lateinit var viewModel : VM
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         injectDependencies(buildActivityComponent())
         super.onCreate(savedInstanceState)
@@ -27,11 +28,11 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
     }
 
     protected open fun setupObservers() {
-        viewModel.messageString.observe(this, Observer {
+        viewModel.messageString.observe(this, {
             it.data?.run { showMessage(this) }
         })
 
-        viewModel.messageStringId.observe(this, Observer {
+        viewModel.messageStringId.observe(this, {
             it.data?.run { showMessage(this) }
         })
     }
@@ -59,8 +60,8 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
 
 
 
-    @LayoutRes
-    protected abstract fun provideLayoutId(): Int
+
+    protected abstract fun provideLayoutId(): View
 
     protected abstract fun injectDependencies(activityComponent: ActivityComponent)
 
