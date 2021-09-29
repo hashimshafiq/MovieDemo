@@ -7,7 +7,6 @@ import com.hashimshafiq.moviedemo.data.repository.HomeRepository
 import com.hashimshafiq.moviedemo.ui.base.BaseActivity
 import com.hashimshafiq.moviedemo.ui.detail.MovieDetailViewModel
 import com.hashimshafiq.moviedemo.ui.home.HomeViewModel
-import com.hashimshafiq.moviedemo.ui.home.adapter.MoviesAdapter
 import com.hashimshafiq.moviedemo.utils.network.NetworkHelper
 import dagger.Module
 import dagger.Provides
