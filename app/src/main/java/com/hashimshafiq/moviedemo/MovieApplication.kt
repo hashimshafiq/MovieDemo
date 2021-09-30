@@ -1,33 +1,7 @@
 package com.hashimshafiq.moviedemo
 
 import android.app.Application
-import com.hashimshafiq.moviedemo.di.components.ApplicationComponent
-import com.hashimshafiq.moviedemo.di.components.DaggerApplicationComponent
-import com.hashimshafiq.moviedemo.di.modules.ApplicationModule
+import dagger.hilt.android.HiltAndroidApp
 
-class MovieApplication : Application() {
-
-    lateinit var applicationComponent: ApplicationComponent
-
-    override fun onCreate() {
-        super.onCreate()
-        injectDependencies()
-    }
-
-
-    private fun injectDependencies(){
-        applicationComponent = DaggerApplicationComponent
-                .builder()
-                .applicationModule(ApplicationModule(this))
-                .build()
-
-        applicationComponent.inject(this)
-    }
-
-    // Needed to replace the component with a test specific one
-    fun setComponent(applicationComponent: ApplicationComponent) {
-        this.applicationComponent = applicationComponent
-    }
-
-
-}
+@HiltAndroidApp
+class MovieApplication : Application()

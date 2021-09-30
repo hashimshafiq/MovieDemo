@@ -8,11 +8,13 @@ import com.hashimshafiq.moviedemo.data.repository.HomeRepository
 import com.hashimshafiq.moviedemo.ui.base.BaseViewModel
 import com.hashimshafiq.moviedemo.utils.common.Resource
 import com.hashimshafiq.moviedemo.utils.network.NetworkHelper
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-
-class HomeViewModel(networkHelper: NetworkHelper, private val homeRepository: HomeRepository) : BaseViewModel(networkHelper) {
+@HiltViewModel
+class HomeViewModel @Inject constructor(networkHelper: NetworkHelper, private val homeRepository: HomeRepository) : BaseViewModel(networkHelper) {
 
     private val moviesList = MutableLiveData<Resource<MovieListResponse>>()
     private var movieListResponse : MovieListResponse? = null

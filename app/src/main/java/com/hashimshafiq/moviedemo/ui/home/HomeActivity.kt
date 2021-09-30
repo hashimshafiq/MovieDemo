@@ -3,43 +3,60 @@ package com.hashimshafiq.moviedemo.ui.home
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
+import androidx.annotation.StringRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.hashimshafiq.moviedemo.R
 import com.hashimshafiq.moviedemo.data.local.db.entity.Movie
 import com.hashimshafiq.moviedemo.databinding.ActivityMainBinding
-import com.hashimshafiq.moviedemo.di.components.ActivityComponent
-import com.hashimshafiq.moviedemo.ui.base.BaseActivity
+//import com.hashimshafiq.moviedemo.di.components.ActivityComponent
 import com.hashimshafiq.moviedemo.ui.detail.MovieDetailActivity
 import com.hashimshafiq.moviedemo.ui.home.adapter.MoviesAdapter
 import com.hashimshafiq.moviedemo.utils.common.Status
+import com.hashimshafiq.moviedemo.utils.display.Toaster
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
-class HomeActivity : BaseActivity<HomeViewModel>() {
+@AndroidEntryPoint
+class HomeActivity : AppCompatActivity() {
 
     companion object{
         const val TAG = "HomeActivity"
     }
 
-    lateinit var binding : ActivityMainBinding
+
+
+    private lateinit var binding : ActivityMainBinding
 
     @Inject
     lateinit var linearLayoutManager: LinearLayoutManager
 
-    lateinit var moviesAdapter: MoviesAdapter
+    private lateinit var moviesAdapter: MoviesAdapter
 
-    override fun provideLayoutId(): View {
+    val viewModel : HomeViewModel by viewModels()
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-
-        return binding.root
+        setContentView(binding.root)
+        setupObservers()
+        setupView()
+        viewModel.onCreate()
     }
 
-    override fun injectDependencies(activityComponent: ActivityComponent) = activityComponent.inject(this)
 
-    override fun setupView(savedInstanceState: Bundle?) {
 
-        moviesAdapter = MoviesAdapter(this.lifecycle, arrayListOf()){ movie, imageView ->
+    private fun showMessage(message: String) = Toaster.show(applicationContext, message)
+
+    private fun showMessage(@StringRes resId: Int) = showMessage(getString(resId))
+
+    private fun setupView() {
+
+        moviesAdapter = MoviesAdapter(arrayListOf()){ movie, imageView ->
 
             val intent = Intent(this, MovieDetailActivity::class.java)
             intent.putExtra(MovieDetailActivity.MOVIE_DATA, movie)
@@ -73,8 +90,15 @@ class HomeActivity : BaseActivity<HomeViewModel>() {
 
     }
 
-    override fun setupObservers() {
-        super.setupObservers()
+    private fun setupObservers() {
+
+        viewModel.messageString.observe(this, {
+            it.data?.run { showMessage(this) }
+        })
+
+        viewModel.messageStringId.observe(this, {
+            it.data?.run { showMessage(this) }
+        })
 
         viewModel.getMoviesList().observe(this, {
             when(it.status){

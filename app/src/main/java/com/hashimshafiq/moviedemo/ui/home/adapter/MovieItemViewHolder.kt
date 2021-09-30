@@ -1,73 +1,37 @@
 package com.hashimshafiq.moviedemo.ui.home.adapter
 
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.hashimshafiq.moviedemo.R
 import com.hashimshafiq.moviedemo.data.local.db.entity.Movie
 import com.hashimshafiq.moviedemo.databinding.CustomMovieRowBinding
-import com.hashimshafiq.moviedemo.di.components.ViewHolderComponent
-import com.hashimshafiq.moviedemo.ui.base.BaseItemViewHolder
+import com.hashimshafiq.moviedemo.utils.common.Constants
 
-class MovieItemViewHolder(parent : ViewGroup, private val onClick: (Movie,ImageView) -> Unit) : BaseItemViewHolder<Movie, MovieItemViewModel>(R.layout.custom_movie_row,parent) {
-
+class MovieItemViewHolder(private val view : View, private val onClick: (Movie,ImageView) -> Unit) : RecyclerView.ViewHolder(view) {
 
 
-
-    override fun injectDependencies(viewHolderComponent: ViewHolderComponent) {
-        viewHolderComponent.inject(this)
-    }
-
-    override fun setupView(view: View) {
+     fun bind(movie : Movie) {
         val binding : CustomMovieRowBinding =
             CustomMovieRowBinding.bind(view)
 
-        viewModel.movieName.observe(this, { name ->
-            name?.run {
-                binding.movieName.text = name
-            }
-        })
+        binding.apply {
+            movieName.text = movie.title
+            movieRating.text = itemView.context.getString(R.string.averageVote,movie.vote_average.toString())
+            movieOverview.text = movie.overview
+            movieReleaseDate.text = itemView.context.getString(R.string.releaseDate,movie.releaseDate)
 
-        viewModel.movieAverageVote.observe(this, { averageVote ->
-            averageVote?.run {
-                binding.movieRating.text = itemView.context.getString(R.string.averageVote,averageVote.toString())
-            }
-
-        })
-
-        viewModel.movieOverview.observe(this, { overview ->
-            overview?.run {
-                binding.movieOverview.text = overview
-            }
-
-        })
-
-        viewModel.releaseDate.observe(this, { releaseDate ->
-
-            releaseDate?.run {
-                binding.movieReleaseDate.text = itemView.context.getString(R.string.releaseDate,releaseDate)
-            }
-
-        })
+            val glideRequest = Glide
+                .with(binding.movieImage.context)
+                .load(Constants.IMAGE_BASE_URL+movie.poster_path)
+            glideRequest.into(binding.movieImage)
+        }
 
 
-
-        viewModel.imageDetail.observe(this, {
-            it?.run {
-                val glideRequest = Glide
-                        .with(binding.movieImage.context)
-                        .load(this)
-
-
-
-                glideRequest.into(binding.movieImage)
-            }
-        })
 
         itemView.setOnClickListener {
-            //onItemClickListener.onItemClicked(viewModel.data.value!!,itemView.movieImage)
-            onClick(viewModel.data.value!!,binding.movieImage)
+            onClick(movie,binding.movieImage)
         }
 
 
