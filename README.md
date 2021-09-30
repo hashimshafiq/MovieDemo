@@ -19,3 +19,4 @@ This app fetches the list of movies from the https://www.themoviedb.org/ and dis
 * Retrofit
 * LiveData
 * Glide
+* Day/Night Theme
