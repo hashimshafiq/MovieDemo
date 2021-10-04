@@ -15,7 +15,8 @@ This app fetches the list of movies from the https://www.themoviedb.org/ and dis
 * Material Theme
 * Room
 * MVVM
-* Dagger 2
+* ~~Dagger 2~~ Hilt Android
 * Retrofit
 * LiveData
 * Glide
+* Day/Night Theme
